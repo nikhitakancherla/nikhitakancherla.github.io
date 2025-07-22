@@ -1,3 +1,5 @@
+--- START OF FILE index.html ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,244 +7,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nakshika - Timeless Handcrafted Jewelry</title>
     <meta name="description" content="Discover Nakshika's collection of timeless, handcrafted jewelry. Ethically sourced and masterfully created for the modern connoisseur.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
+        /* --- NEW: DUSTY CEDAR & CHAMPAGNE THEME --- */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --color-bg-primary: #011C17;      /* Midnight Emerald */
+            --color-bg-secondary: #2E2522;     /* NEW: Deep Umber */
+            --color-accent-cedar: #C48F7F;     /* NEW: Dusty Cedar */
+            --color-accent-cedar-hover: #B37E6E; /* Darker Cedar on hover */
+            --color-text-primary: #F0EFEA;     /* Warm Ivory */
+            --color-text-secondary: #DCD6C8;  /* NEW: Soft Champagne */
+        }
+
         /* Reset and Base Styles */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-            background-color: #3e3136; /* Dark Plum/Brown */
-            color: #e8dbd3; /* Light Beige */
-            line-height: 1.6;
+            font-family: var(--font-body);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.7;
             min-height: 100vh;
-            padding-top: 64px; /* For fixed navbar */
+            padding-top: 70px;
         }
         section[id] {
             scroll-margin-top: 80px;
         }
         a { color: inherit; text-decoration: none; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
 
         /* Container */
         .container {
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+            width: 100%; margin-left: auto; margin-right: auto;
+            padding-left: 1.5rem; padding-right: 1.5rem;
         }
-        @media (min-width: 640px) { .container { max-width: 640px; } }
         @media (min-width: 768px) { .container { max-width: 768px; } }
         @media (min-width: 1024px) { .container { max-width: 1024px; } }
         @media (min-width: 1280px) { .container { max-width: 1280px; } }
-        @media (min-width: 1536px) { .container { max-width: 1536px; } }
-
-        /* Color & Style Utilities from Palette */
-        .text-accent { color: #ae8177; }
-        .text-primary { color: #e8dbd3; }
-        .text-secondary { color: #b0a9a4; }
-        .text-muted { color: #8a8885; }
-        .bg-base { background-color: #3e3136; }
-        .bg-surface { background-color: #4a544b; } /* Dark Olive */
-        .bg-accent { background-color: #ae8177; }
-        .hover-bg-accent-dark:hover { background-color: #9d7168; }
 
         /* Navbar */
         .navbar {
-            background-color: rgba(62, 49, 54, 0.8); /* Dark Plum transparent */
-            backdrop-filter: blur(10px);
-            color: #e8dbd3;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 50;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            background-color: rgba(1, 28, 23, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1.25rem 1rem; position: fixed; width: 100%; top: 0; z-index: 50;
+            border-bottom: 1px solid rgba(196, 143, 127, 0.2); /* UPDATED: Cedar transparent border */
         }
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar-brand { font-size: 1.5rem; font-weight: 700; cursor: pointer; }
+        .navbar-container { display: flex; justify-content: space-between; align-items: center; }
+        .navbar-brand { font-size: 1.75rem; font-weight: 400; cursor: pointer; color: var(--color-accent-cedar); letter-spacing: 1px; }
         .nav-links button {
-            color: #e8dbd3;
-            transition: color 0.3s ease;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
+            color: var(--color-text-primary); transition: color 0.3s ease;
+            padding: 0.5rem 0.75rem; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.5px;
         }
-        .nav-links button:hover { color: #ae8177; }
-        .mobile-menu-button { display: none; color: #e8dbd3; }
+        .nav-links button:hover { color: var(--color-accent-cedar); }
+        .mobile-menu-button { display: none; color: var(--color-text-primary); }
 
         /* Hero Section */
         .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background-size: cover; background-position: center; position: relative;
         }
-        .hero-overlay { position: absolute; inset: 0; background-color: #3e3136; opacity: 0.5; }
+        .hero-overlay {
+            position: absolute; inset: 0; background-color: var(--color-bg-primary);
+            background-blend-mode: luminosity; opacity: 0.8;
+        }
         .hero-content { position: relative; z-index: 10; padding: 2rem; max-width: 48rem; margin: auto; }
         .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: white;
-            line-height: 1.2;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: 3.5rem; font-weight: 400; margin-bottom: 1.5rem; color: white;
+            line-height: 1.2; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
-        .hero-subtitle { font-size: 1.25rem; margin-bottom: 2rem; color: #e8dbd3; font-weight: 300; }
+        .hero-subtitle { font-size: 1.25rem; margin-bottom: 2rem; color: var(--color-text-primary); font-weight: 300; }
         .hero-button {
-            background-color: #ae8177; /* Muted Rose */
-            color: white;
-            font-weight: 700;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            font-size: 1.125rem;
+            background-color: var(--color-accent-cedar); color: white;
+            font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.85rem 2.5rem; border-radius: 2px; font-size: 1rem;
             transition: transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
         }
-        .hero-button:hover { background-color: #9d7168; transform: scale(1.05); }
+        .hero-button:hover { background-color: var(--color-accent-cedar-hover); transform: scale(1.05); }
 
         /* Common Section Styles */
-        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
-        .section-title { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 1rem; }
-        .section-divider { width: 6rem; height: 4px; background-color: #ae8177; margin: 0 auto 3rem auto; }
-        .section-subtitle { font-size: 1.125rem; color: #b0a9a4; margin-bottom: 2rem; max-width: 42rem; margin-left:auto; margin-right:auto; text-align:center; }
+        .section-padding { padding: 6rem 0; }
+        .bg-primary { background-color: var(--color-bg-primary); }
+        .bg-secondary { background-color: var(--color-bg-secondary); }
+        .section-title { font-size: 2.75rem; font-weight: 400; text-align: center; margin-bottom: 1.5rem; color: var(--color-text-primary); }
+        .section-divider { width: 5rem; height: 2px; background-color: var(--color-accent-cedar); margin: 0 auto 3rem auto; }
+        .section-subtitle { font-size: 1.1rem; color: var(--color-text-secondary); max-width: 42rem; margin: auto; text-align: center; font-weight: 300; }
 
-        /* Our Story Section */
-        .story-section-bg {
-            background-size: cover;
-            background-attachment: fixed;
-            background-blend-mode: multiply;
-            background-color: rgba(74, 84, 75, 0.9); /* Dark Olive with opacity */
-        }
-        .story-text { max-width: 48rem; margin: auto; line-height: 1.75; color: #e8dbd3; text-align: center; }
-
-        /* Collections Section */
-        .collections-grid { display: grid; gap: 2.5rem; }
-        .collection-card {
-            background-color: #4a544b; /* Dark Olive */
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(138, 136, 133, 0.2);
-        }
-        .collection-card:hover { transform: translateY(-5px); }
-        .collection-card-bg-overlay {
-            position: absolute; inset: 0; background-size: cover; background-position: center;
-            opacity: 0.15; transition: opacity 0.3s ease, transform 0.5s ease;
-        }
-        .collection-card:hover .collection-card-bg-overlay { opacity: 0.25; transform: scale(1.05); }
-        .collection-card-content { position: relative; z-index: 1; text-align: center; }
-        .collection-card-title { font-size: 1.875rem; font-weight: 600; margin-bottom: 1rem; color: #e8dbd3; }
-        .collection-card-text { color: #b0a9a4; line-height: 1.75; }
-        
-        /* Craftsmanship Section */
+        /* Content Styles */
+        .story-text { max-width: 48rem; margin: 3rem auto 0 auto; text-align: center; font-size: 1.1rem; }
         .craftsmanship-image-container {
-            background-color: #4a544b; /* Dark Olive */
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            max-width: 56rem; margin: auto;
+            border: 1px solid rgba(196, 143, 127, 0.2); /* UPDATED: Cedar transparent border */
+            padding: 1rem; border-radius: 2px;
+            max-width: 56rem; margin: 3rem auto 0 auto;
         }
-        .craftsmanship-image { width: 100%; height: auto; border-radius: 0.375rem; object-fit: cover; max-height: 500px; }
-        .craftsmanship-caption { margin-top: 1rem; font-size: 0.875rem; color: #8a8885; font-style: italic; text-align: center; }
+        .craftsmanship-image { width: 100%; height: auto; display: block; }
+        .craftsmanship-caption { margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-secondary); font-style: italic; text-align: center; }
 
-        /* Testimonials Section */
-        .testimonials-grid { display: grid; gap: 2rem; }
-        .testimonial-card {
-            background-color: #4a544b; /* Dark Olive */
-            padding: 2rem;
-            border-radius: 0.75rem;
-            border-left: 4px solid #ae8177;
+        /* Card Styles (Collections & Testimonials) */
+        .grid-container { display: grid; gap: 2rem; margin-top: 4rem; }
+        .card {
+            background-color: transparent; padding: 2rem;
+            border: 1px solid rgba(196, 143, 127, 0.2); /* UPDATED: Cedar transparent border */
+            border-radius: 2px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        .testimonial-quote { font-style: italic; color: #e8dbd3; margin-bottom: 1rem; font-size: 1.1rem; }
-        .testimonial-author { font-weight: 600; color: #ae8177; text-align: right; }
+        .card:hover { background-color: rgba(196, 143, 127, 0.05); transform: translateY(-5px); }
+        .collection-card { text-align: center; }
+        .collection-card img { width: 100%; height: 250px; object-fit: cover; margin-bottom: 1.5rem; }
+        .card-title { font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--color-text-primary); }
+        .card-text { color: var(--color-text-secondary); font-size: 1rem; }
+        .testimonial-quote { font-family: var(--font-heading); font-style: italic; font-size: 1.25rem; margin-bottom: 1.5rem; }
+        .testimonial-author { text-align: right; color: var(--color-accent-cedar); font-weight: 700; }
         
-        /* Materials Section */
-        .materials-container { text-align: center; }
-        .materials-title { font-size: 1.875rem; font-weight: 600; margin-bottom: 1.5rem; color: #e8dbd3; }
-        .materials-tags-container { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-        .material-tag {
-            background-color: #8a8885; /* Warm Gray */
-            color: #3e3136;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact-section-bg {
-            background-size: cover; background-position: center;
-            background-blend-mode: multiply;
-            background-color: rgba(62, 49, 54, 0.8);
-        }
+        /* Contact & Footer */
         .contact-button {
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-size: 1.125rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: #ae8177; color: white;
+            background-color: var(--color-accent-cedar); color: white;
+            font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.85rem 2.5rem; border-radius: 2px; font-size: 1rem;
+            transition: transform 0.3s ease, background-color 0.3s ease; display: inline-block; margin-top: 2rem;
         }
-        .contact-button:hover { background-color: #9d7168; transform: scale(1.05); }
-
-        /* Footer */
+        .contact-button:hover { background-color: var(--color-accent-cedar-hover); transform: scale(1.05); }
         .footer {
-            background-color: #2f2529; /* Darker Plum */
-            color: #8a8885;
-            text-align: center;
-            padding: 2rem 0;
+            background-color: #000;
+            color: var(--color-text-secondary); text-align: center; padding: 3rem 0;
+            font-size: 0.9rem;
         }
-        .footer p { margin-bottom: 0.25rem; }
-        .footer .text-sm { font-size: 0.875rem; }
-
-        /* Responsive Adjustments */
-        @media (max-width: 767px) { /* Mobile */
-            .nav-links { display: none; }
-            .mobile-menu-button { display: block; }
-            .hero-title { font-size: 2.25rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .section-title { font-size: 1.875rem; }
-            .collections-grid, .testimonials-grid { grid-template-columns: 1fr; }
-            .container { padding-left: 1rem; padding-right: 1rem; }
+        
+        /* Responsive */
+        @media (max-width: 767px) {
+            .nav-links { display: none; } .mobile-menu-button { display: block; }
+            .grid-container { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.5rem; } .section-title { font-size: 2.25rem; }
         }
-        @media (min-width: 768px) { /* Tablet and up */
-            .nav-links { display: flex; gap: 0.25rem; }
-            .hero-title { font-size: 3.75rem; }
-            .hero-subtitle { font-size: 1.5rem; }
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
             .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-            .collections-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (min-width: 1024px) { /* Desktop */
             .collections-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container navbar-container">
-            <h1 class="navbar-brand text-accent" onclick="scrollToSection('hero')">
-                NAKSHIKA
-            </h1>
+            <h1 class="navbar-brand" onclick="scrollToSection('hero')">NAKSHIKA</h1>
             <div class="nav-links">
                 <button onclick="scrollToSection('hero')">Home</button>
                 <button onclick="scrollToSection('our-story')">Our Story</button>
@@ -251,154 +168,100 @@
                 <button onclick="scrollToSection('testimonials')">Testimonials</button>
                 <button onclick="scrollToSection('contact')">Contact</button>
             </div>
-            <button class="mobile-menu-button">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 1.5rem; height: 1.5rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <button class="mobile-menu-button"> <!-- Icon can be added here --> </button>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
         <section id="hero" class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1611389944733-79d3db5b5978?q=80&w=2070&auto=format&fit=crop');">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h2 class="hero-title">Elegance Redefined</h2>
-                <p class="hero-subtitle">
-                    Discover timeless pieces, crafted with passion and precision. Welcome to Nakshika.
-                </p>
-                <button class="hero-button" onclick="scrollToSection('collections')">
-                    Explore Collections
-                </button>
+                <h2 class="hero-title">Woven in Starlight</h2>
+                <p class="hero-subtitle">Discover timeless pieces, crafted with passion and precision. Welcome to Nakshika.</p>
+                <a href="#collections" class="hero-button" onclick="scrollToSection('collections')">Explore Collections</a>
             </div>
         </section>
 
-        <!-- Our Story Section -->
-        <section id="our-story" class="section-padding bg-surface story-section-bg" style="background-image: url('https://images.unsplash.com/photo-1620953932822-e3251b6a152d?q=80&w=1964&auto=format&fit=crop');">
+        <section id="our-story" class="section-padding bg-secondary">
             <div class="container">
-                <h3 class="section-title text-accent">Our Story</h3>
+                <h3 class="section-title">Our Story</h3>
                 <div class="section-divider"></div>
                 <p class="story-text">
-                    Born from a love for artistry and a reverence for nature's finest materials, Nakshika is more than just a brand; it's a legacy. We believe that every piece of jewelry should tell a story—of its wearer, its creator, and its journey from the earth to a cherished heirloom. Our mission is to create exquisite, meaningful jewelry that transcends trends and celebrates individuality.
+                    Born from a love for artistry and a reverence for nature's finest materials, Nakshika is more than just a brand; it's a legacy. We believe that every piece of jewelry should tell a story—of its wearer, its creator, and its journey from the earth to a cherished heirloom.
                 </p>
             </div>
         </section>
 
-        <!-- Collections Section -->
-        <section id="collections" class="section-padding bg-base">
+        <section id="collections" class="section-padding bg-primary">
             <div class="container">
-                <h3 class="section-title text-accent">Featured Collections</h3>
+                <h3 class="section-title">Featured Collections</h3>
                 <div class="section-divider"></div>
-                <div class="collections-grid">
-                    <div class="collection-card">
-                        <div class="collection-card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1598561085326-f7243e8954e7?q=80&w=1964&auto=format&fit=crop');"></div>
-                        <div class="collection-card-content">
-                            <h4 class="collection-card-title">Engagement Rings</h4>
-                            <p class="collection-card-text">
-                                Symbols of eternal love, our engagement rings are designed to capture the brilliance of your unique story.
-                            </p>
-                        </div>
+                <div class="grid-container collections-grid">
+                    <div class="collection-card card">
+                        <img src="https://images.unsplash.com/photo-1598561085326-f7243e8954e7?q=80&w=1964&auto=format&fit=crop" alt="Diamond engagement ring">
+                        <h4 class="card-title">Engagement Rings</h4>
+                        <p class="card-text">Symbols of eternal love, designed to capture the brilliance of your unique story.</p>
                     </div>
-                    <div class="collection-card">
-                        <div class="collection-card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1616773482222-263a6f108f23?q=80&w=1974&auto=format&fit=crop');"></div>
-                        <div class="collection-card-content">
-                            <h4 class="collection-card-title">Fine Necklaces</h4>
-                            <p class="collection-card-text">
-                                From delicate solitaires to statement pieces, each necklace is crafted to be a centerpiece of grace and sophistication.
-                            </p>
-                        </div>
+                    <div class="collection-card card">
+                        <img src="https://images.unsplash.com/photo-1616773482222-263a6f108f23?q=80&w=1974&auto=format&fit=crop" alt="Fine gold necklace">
+                        <h4 class="card-title">Fine Necklaces</h4>
+                        <p class="card-text">From delicate solitaires to statement pieces, each a centerpiece of grace.</p>
                     </div>
-                    <div class="collection-card">
-                        <div class="collection-card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1620656272658-2287ade3b30a?q=80&w=1965&auto=format&fit=crop');"></div>
-                        <div class="collection-card-content">
-                            <h4 class="collection-card-title">Elegant Bracelets</h4>
-                            <p class="collection-card-text">
-                                Adorn your wrist with our collection of bracelets, a perfect blend of modern design and timeless appeal.
-                            </p>
-                        </div>
+                    <div class="collection-card card">
+                        <img src="https://images.unsplash.com/photo-1620656272658-2287ade3b30a?q=80&w=1965&auto=format&fit=crop" alt="Elegant diamond bracelet">
+                        <h4 class="card-title">Elegant Bracelets</h4>
+                        <p class="card-text">Adorn your wrist with a perfect blend of modern design and timeless appeal.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Craftsmanship Section -->
-        <section id="craftsmanship" class="section-padding bg-surface">
+        <section id="craftsmanship" class="section-padding bg-secondary">
             <div class="container">
-                <h3 class="section-title text-accent">The Art of Craftsmanship</h3>
+                <h3 class="section-title">The Art of Craftsmanship</h3>
                 <div class="section-divider"></div>
                 <p class="section-subtitle">
                     Every Nakshika piece is the culmination of meticulous design and the skilled hands of master artisans. We honor traditional techniques while embracing modern innovation to bring each vision to life.
                 </p>
                 <div class="craftsmanship-image-container">
-                    <img
-                        src="https://images.unsplash.com/photo-1572302837943-207005ac4f47?q=80&w=1974&auto=format&fit=crop"
-                        alt="A jeweler meticulously working on a piece of jewelry"
-                        class="craftsmanship-image"
-                    />
-                    <p class="craftsmanship-caption">
-                        From the initial sketch to the final polish, every detail is perfected with unwavering dedication.
-                    </p>
+                    <img src="https://images.unsplash.com/photo-1572302837943-207005ac4f47?q=80&w=1974&auto=format&fit=crop" alt="Jeweler at work" class="craftsmanship-image"/>
                 </div>
             </div>
         </section>
         
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section-padding bg-base">
+        <section id="testimonials" class="section-padding bg-primary">
             <div class="container">
-                <h3 class="section-title text-accent">Words of our Wearers</h3>
+                <h3 class="section-title">Words from our Wearers</h3>
                 <div class="section-divider"></div>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"The ring I received is beyond stunning. The quality and craftsmanship are evident in every detail. It feels so special and truly one-of-a-kind."</p>
+                <div class="grid-container testimonials-grid">
+                    <div class="testimonial-card card">
+                        <p class="testimonial-quote">"The quality and craftsmanship are evident in every detail. It feels so special and truly one-of-a-kind."</p>
                         <p class="testimonial-author">- Alexandra T.</p>
                     </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"I was looking for a necklace that was both modern and timeless, and I found it at Nakshika. The customer service was as exceptional as the piece itself."</p>
+                    <div class="testimonial-card card">
+                        <p class="testimonial-quote">"I was looking for a necklace that was both modern and timeless, and I found it. The service was as exceptional as the piece itself."</p>
                         <p class="testimonial-author">- Ben Carter</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Our Materials Section -->
-        <section id="materials" class="section-padding bg-surface">
-            <div class="container">
-                <div class="materials-container">
-                    <h4 class="materials-title text-accent">Our Promise & Materials</h4>
-                    <div class="materials-tags-container">
-                        <span class="material-tag">Conflict-Free Diamonds</span>
-                        <span class="material-tag">Recycled 18K Gold</span>
-                        <span class="material-tag">Ethically Sourced Gemstones</span>
-                        <span class="material-tag">Sustainable Practices</span>
-                        <span class="material-tag">Impeccable Quality</span>
-                        <span class="material-tag">Lifetime Craftsmanship</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-padding contact-section-bg" style="background-image: url('https://images.unsplash.com/photo-1599386777829-397a6953a992?q=80&w=2070&auto=format&fit=crop');">
+        <section id="contact" class="section-padding bg-secondary">
             <div class="container" style="text-align: center;">
-                <h3 class="section-title text-accent">Get in Touch</h3>
+                <h3 class="section-title">Begin Your Story</h3>
                 <div class="section-divider"></div>
-                <p class="section-subtitle" style="color: #e8dbd3;">
-                    For bespoke inquiries, collaborations, or to schedule a private viewing, please reach out to us. We would be delighted to assist you.
+                <p class="section-subtitle">
+                    For bespoke inquiries, collaborations, or to schedule a private viewing, please reach out to us. We would be delighted to assist you in finding or creating your perfect heirloom.
                 </p>
-                <div style="display: flex; justify-content: center;">
-                    <a href="mailto:concierge@nakshika.com" class="contact-button">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 1.5rem; height: 1.5rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        Email Our Concierge
-                    </a>
-                </div>
+                <a href="mailto:concierge@nakshika.com" class="contact-button">Email Our Concierge</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>© <span id="currentYear"></span> Nakshika. All rights reserved.</p>
-            <p class="text-sm">Crafting Heirlooms for the Future.</p>
+            <p>Crafting Heirlooms for the Future.</p>
         </div>
     </footer>
 
@@ -409,29 +272,7 @@
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
-
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Basic mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const navLinksContainer = document.querySelector('.navbar .nav-links');
-        if (mobileMenuButton && navLinksContainer) {
-            mobileMenuButton.addEventListener('click', () => {
-                if (window.getComputedStyle(navLinksContainer).display === 'flex') {
-                    navLinksContainer.style.display = 'none';
-                } else {
-                    navLinksContainer.style.display = 'flex';
-                    navLinksContainer.style.flexDirection = 'column';
-                    navLinksContainer.style.position = 'absolute';
-                    navLinksContainer.style.top = '64px';
-                    navLinksContainer.style.left = '0';
-                    navLinksContainer.style.right = '0';
-                    navLinksContainer.style.backgroundColor = 'rgba(62, 49, 54, 0.95)';
-                    navLinksContainer.style.padding = '1rem';
-                    navLinksContainer.style.textAlign = 'center';
-                }
-            });
-        }
     </script>
 
 </body>
